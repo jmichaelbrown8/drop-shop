@@ -35,8 +35,19 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', (req, res) => {
-  // create a new tag
+router.post('/', async (req, res) => {
+  try {
+    // create a new tag
+    const tag = await Tag.create(req.body);
+    const fullTag = await Tag.findByPk(tag.id, {
+      include: [{
+        model: Product
+      }]
+    });
+    res.status(200).json(fullTag);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.put('/:id', (req, res) => {
