@@ -48,7 +48,12 @@ router.put('/:id', async (req, res) => {
         id: req.params.id
       }
     });
-    res.status(200).json(result);
+    const fullCategory = await Category.findByPk(
+      req.params.id, {
+        // be sure to include its associated Products
+        include: [{ model: Product }]
+      });
+    res.status(200).json(fullCategory);
   } catch (err) {
     res.status(500).json(err);
   }

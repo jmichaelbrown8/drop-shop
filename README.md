@@ -37,3 +37,6 @@ In addition to the steps above, you can:
 
 ## Usage
 
+You can view a video of the server set up and running [here](https://drive.google.com/file/d/1b7PC407m07eZe9oEp-JnnWqW45d9cy2C/view?usp=sharing)
+
+![recording](./screenshot.png)
